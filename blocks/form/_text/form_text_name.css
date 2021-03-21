@@ -1,10 +1,10 @@
-.form_text-work {
+.form_text_name {
     border: 0;
     width: 358px;
 }
 
 @media screen and (max-width: 767px) {
-    .form_text-work {
+    .form_text_name {
         width: 238px;
     }
 }

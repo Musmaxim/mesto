@@ -5,8 +5,8 @@ let closePopupOverlay = document.querySelector('.popup__overlay');
 let ProfileName = document.querySelector('.profile__name');
 let ProfileWork = document.querySelector('.profile__work');
 let formElement = document.querySelector('.save');
-let nameInput = document.querySelector('.form_text-name');
-let jobInput = document.querySelector('.form_text-work');
+let nameInput = document.querySelector('.form_text_name');
+let jobInput = document.querySelector('.form_text_work');
 
 function openPopup() {
     popup.classList.add('popup_visible');

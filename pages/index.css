@@ -29,7 +29,7 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__name/form__name.css);
 @import url(../blocks/form/__work/form__work.css);
-@import url(../blocks/form/_text/form_text-name.css);
-@import url(../blocks/form/_text/form_text-work.css);
+@import url(../blocks/form/_text/form_text_name.css);
+@import url(../blocks/form/_text/form_text_work.css);
 @import url(../blocks/save/save.css);
 @import url(../blocks/save/__title/save__title.css);
