@@ -1,0 +1,13 @@
+.edit__pen {
+    background-image: url(../../../images/Pen.svg);
+    width: 10px;
+    height: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .edit__pen {
+        width: 7px;
+        height: 7px;
+        background-size: 100%;
+    }
+}

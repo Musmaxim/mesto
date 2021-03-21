@@ -1,0 +1,22 @@
+.edit {
+    height: 24px;
+    width: 24px;
+    border: 1px white solid;
+    align-self: end;
+    width: 100%;
+    opacity: 1;
+    background-color: black;
+}
+
+.edit:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 767px) {
+    .edit {
+        height: 18px;
+        width: 18px;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+}

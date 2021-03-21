@@ -1,0 +1,12 @@
+.form__work {
+    border: 0;
+    border-bottom: #545454 1px solid;
+    margin-top: 30px;
+    padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .form__work {
+        width: 238px;
+    }
+}

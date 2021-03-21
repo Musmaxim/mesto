@@ -1,0 +1,10 @@
+    .form__text {
+        border: 0;
+        width: 358px;
+    }
+    
+    @media screen and (max-width: 767px) {
+        .form__text {
+            width: 238px;
+        }
+    }
