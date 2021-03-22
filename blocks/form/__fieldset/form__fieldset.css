@@ -1,12 +1,12 @@
-.form__work {
+.form__fieldset {
     border: 0;
-    border-bottom: #545454 1px solid;
-    margin-top: 30px;
     padding: 0;
+    margin-top: 54px;
 }
 
 @media screen and (max-width: 767px) {
-    .form__work {
+    .form__fieldset {
         width: 238px;
+        margin-top: 75px;
     }
 }

@@ -1,4 +1,4 @@
-.profile__work {
+.info__work {
     font-style: normal;
     font-weight: normal;
     color: #ffffff;
@@ -8,10 +8,13 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 767px) {
-    .profile__work {
+    .info__work {
         font-size: 14px;
         line-height: 17px;
         text-align: center;

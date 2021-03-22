@@ -1,13 +1,15 @@
-.profile__photo {
-    width: 100%;
+.info__photo {
     object-fit: cover;
     grid-row-start: 1;
     grid-row-end: 3;
+    width: 127px;
+    height: 127px;
     border-radius: 50%;
 }
 
 @media screen and (max-width: 767px) {
-    .profile__photo {
+    .info__photo {
         grid-row-end: 1;
+        margin: auto;
     }
 }

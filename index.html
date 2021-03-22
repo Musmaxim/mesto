@@ -14,67 +14,46 @@
             <div class="header__logo"></div>
         </header>
         <main class="content">
-            <section class="lead">
-                <div class="profile">
-                    <img class="profile__photo" src="./images/Kusto.jpg" alt="Кусто" />
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="edit" id="open_popup_btn">
-                        <div class="edit__pen"></div>
-                    </button>
-                    <p class="profile__work">Исследователь океана</p>
+            <section class="profile">
+                <div class="info">
+                    <img class="info__photo" src="./images/Kusto.jpg" alt="Кусто" />
+                    <h1 class="info__name">Жак-Ив Кусто</h1>
+                    <button class="info__edit" type="button"></button>
+                    <p class="info__work">Исследователь океана</p>
                 </div>
-                <button class="add">
-                    <div class="add__plus"></div>
+                <button class="profile__add" type="button">
                 </button>
             </section>
             <section class="elements">
                 <article class="element">
                     <img class="element__image" src="./images/Karachaevsk.jpg" alt="Карачаевск" />
                     <h2 class="element__title">Карачаевск</h2>
-                    <div class="element__like">
-                        <div class="element__heart">
-                        </div>
-                    </div>
+                    <button class="element__like" type="button"></button>
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/Elbrus.jpg" alt="Ельбрус" />
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <div class="element__like">
-                        <div class="element__heart">
-                        </div>
-                    </div>
+                    <button class="element__like" type="button"></button>
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/Dombai.jpg" alt="Домбай" />
                     <h2 class="element__title">Домбай</h2>
-                    <div class="element__like">
-                        <div class="element__heart">
-                        </div>
-                    </div>
+                    <button class="element__like" type="button"></button>
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/Elbrus.jpg" alt="Ельбрус" />
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <div class="element__like">
-                        <div class="element__heart">
-                        </div>
-                    </div>
+                    <button class="element__like" type="button"></button>
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/Dombai.jpg" alt="Домбай" />
                     <h2 class="element__title">Домбай</h2>
-                    <div class="element__like">
-                        <div class="element__heart">
-                        </div>
-                    </div>
+                    <button class="element__like" type="button"></button>
                 </article>
                 <article class="element">
                     <img class="element__image" src="./images/Karachaevsk.jpg" alt="Карачаево-Черкессия" />
                     <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <div class="element__like">
-                        <div class="element__heart">
-                        </div>
-                    </div>
+                    <button class="element__like" type="button"></button>
                 </article>
             </section>
         </main>
@@ -83,21 +62,17 @@
         </footer>
     </div>
     <div class="popup">
-        <div class="popup__overlay"></div>
         <div class="popup__content">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form">
-                <fieldset class="form__name">
-                    <input type="text" class="form__item form__item_el_name">
+            <form class="form" name="form">
+                <fieldset class="form__fieldset">
+                    <input type="text" name="name" placeholder="Введите имя" class="form__item form__item_el_name">
+                    <input type="text" name="work" placeholder="Введите род занятий" class="form__item form__item_el_work">
                 </fieldset>
-                <fieldset class="form__work">
-                    <input type="text" class="form__item form__item_el_work">
-                </fieldset>
+                <button class="save" type="submit">Сохранить
+                </button>
             </form>
-            <button class="save">
-                <h2 class="save__title">Сохранить</h2>
-            </button>
-            <div class="popup__close-button"></div>
+            <button aria-label="Close" type="button" class="popup__close-button"></button>
         </div>
     </div>
     <script src='./scripts/index.js'></script>

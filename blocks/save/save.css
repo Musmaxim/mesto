@@ -6,6 +6,14 @@
     background-color: black;
     margin-top: 48px;
     border-radius: 2px;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .save:hover {
@@ -16,5 +24,7 @@
     .save {
         min-width: 238px;
         min-height: 46px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
