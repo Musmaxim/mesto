@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 767px) {
     .info__photo {
-        grid-row-end: 1;
-        margin: auto;
+        grid-row-end: 2;
+        margin-left: 44px;
     }
 }

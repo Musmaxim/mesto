@@ -3,7 +3,7 @@ let openPopupBtn = document.querySelector('.info__edit');
 let closePopupBtn = document.querySelector('.popup__close-button');
 let profileName = document.querySelector('.info__name');
 let profileWork = document.querySelector('.info__work');
-let formelement = document.querySelector('.form');
+let formElement = document.querySelector('.form');
 let nameInput = document.querySelector('.form__item_el_name');
 let jobInput = document.querySelector('.form__item_el_work');
 
@@ -24,7 +24,7 @@ function formSubmitHandler(evt) {
     closePopup();
 }
 
-formelement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', formSubmitHandler);
 
 openPopupBtn.addEventListener('click', openPopup);
 
