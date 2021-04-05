@@ -1,4 +1,4 @@
-.elements__add {
+.button {
     background-image: url(../../../images/Plus.svg);
     width: 150px;
     height: 50px;
@@ -12,12 +12,12 @@
     background-repeat: no-repeat;
 }
 
-.elements__add:hover {
+.button:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 767px) {
-    .elements__add {
+    .button {
         width: 282px;
         margin-top: 36px;
     }

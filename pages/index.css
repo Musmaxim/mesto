@@ -18,7 +18,7 @@
 @import url(../blocks/info/__work/info__work.css);
 @import url(../blocks/info/__edit/info__edit.css);
 @import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/__add/elements__add.css);
+@import url(../blocks/button/button.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__button/element__button.css);
 @import url(../blocks/element/__image/element__image.css);
