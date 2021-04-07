@@ -1,11 +1,11 @@
-let popupProfile = document.querySelector('.popup_profile');
-let openPopupBtn = document.querySelector('.info__edit');
-let closePopupBtn = document.querySelector('.popup__close-button');
-let profileName = document.querySelector('.info__name');
-let profileWork = document.querySelector('.info__work');
-let formElement = document.querySelector('.form_profile');
-let nameInput = document.querySelector('.form__item_el_name');
-let jobInput = document.querySelector('.form__item_el_work');
+const popupProfile = document.querySelector('.popup_profile');
+const openEditPopupBtn = document.querySelector('.info__edit');
+const closePopupBtn = document.querySelector('.popup__close-button');
+const profileName = document.querySelector('.info__name');
+const profileWork = document.querySelector('.info__work');
+const formEditProfile = document.querySelector('.form_profile');
+const nameInput = document.querySelector('.form__item_el_name');
+const jobInput = document.querySelector('.form__item_el_work');
 
 function openPopup(popup) {
     popup.classList.add('popup_visible');
@@ -16,7 +16,7 @@ function closePopup(popup) {
 }
 
 
-openPopupBtn.addEventListener('click', function() {
+openEditPopupBtn.addEventListener('click', function() {
     openPopup(popupProfile);
     nameInput.value = profileName.textContent;
     jobInput.value = profileWork.textContent;
@@ -27,94 +27,53 @@ closePopupBtn.addEventListener('click', function() {
 });
 
 
-function formSubmitHandler(evt) {
+function submitEditProfilePopup(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileWork.textContent = jobInput.value;
     closePopup(popupProfile);
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
+formEditProfile.addEventListener('submit', submitEditProfilePopup);
 
 
-
-const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
-let popupElement = document.querySelector('.popup_add-cards');
-let openPopupElementBtn = document.querySelector('.button');
-let closePopupElementBtn = document.querySelector('.popup__close');
-let elementContainer = document.querySelector('.elements');
-let template = document.querySelector('.template').content;
+const popupAddCard = document.querySelector('.popup_add-cards');
+const openAddCardPopupBtn = document.querySelector('.button');
+const closePopupElementBtn = document.querySelector('.popup__close');
+const elementContainer = document.querySelector('.elements');
+const template = document.querySelector('.template').content;
 const createCardBtn = document.querySelector('.form__create');
-let formCards = document.querySelector('.form_cards');
+const formAddCard = document.querySelector('.form_cards');
 
 
 
 
-openPopupElementBtn.addEventListener('click', function() {
-    openPopup(popupElement);
+
+openAddCardPopupBtn.addEventListener('click', function() {
+    openPopup(popupAddCard);
 
 });
 
 closePopupElementBtn.addEventListener('click', function() {
-    closePopup(popupElement);
+    closePopup(popupAddCard);
 });
 
 
 function createCards(initialCardsData) {
-    let cardData = template.querySelector('.element').cloneNode(true);
-    cardData.querySelector('.element__title').textContent = initialCardsData.name;
-    cardData.querySelector('.element__image').src = initialCardsData.link;
-    cardData.querySelector('.element__image').alt = initialCardsData.name;
+    const cardData = template.querySelector('.element').cloneNode(true);
+    const elementImage = cardData.querySelector('.element__image');
+    const elementTitle = cardData.querySelector('.element__title');
+    elementTitle.textContent = initialCardsData.name;
+    elementImage.src = initialCardsData.link;
+    elementImage.alt = initialCardsData.name;
     elementContainer.prepend(cardData);
-    let elementLikeBtn = document.querySelector('.element__like');
-    let removeCardBtn = document.querySelector('.element__delete');
 
-    function deleteCard() {
-        cardData.remove();
-    }
-    removeCardBtn.addEventListener('click', deleteCard);
+    const popupPicture = document.querySelector('.popup_open-img'); ////я не могу вынести эти константы, а так же код по лайку и удалению карточки из этой функции, макет перестает полностью работать. Решение выше моего понимания, извините.
+    const popupOpenImage = document.querySelector('.element__button');
+    const popupCloseImage = document.querySelector('.popup__close-image');
+    const popupImage = document.querySelector('.popup__image');
+    const popupCaption = document.querySelector('.popup__caption');
 
-    function toggleLike(elementLikeBtn) {
-        elementLikeBtn.classList.toggle('element__like_act');
-    }
-
-    elementLikeBtn.addEventListener('click', function() {
-        toggleLike(elementLikeBtn);
-    });
-
-
-    let popupPicture = document.querySelector('.popup_open-img');
-    let popupOpenImage = document.querySelector('.element__button');
-    let popupCloseImage = document.querySelector('.popup__close-image');
-    let popupImage = document.querySelector('.popup__image');
-    let elementImage = document.querySelector('.element__image');
-    let popupCaption = document.querySelector('.popup__caption');
-    let elementTitle = document.querySelector('.element__title');
 
     popupOpenImage.addEventListener('click', function() {
         openPopup(popupPicture);
@@ -126,24 +85,43 @@ function createCards(initialCardsData) {
         closePopup(popupPicture);
     });
 
+    const elementLikeBtn = cardData.querySelector('.element__like');
+    const removeCardBtn = cardData.querySelector('.element__delete');
+
+    function deleteCard() {
+        cardData.remove();
+    }
+
+    removeCardBtn.addEventListener('click', deleteCard);
+
+    function toggleLike(elementLikeBtn) {
+        elementLikeBtn.classList.toggle('element__like_act');
+    }
+
+    elementLikeBtn.addEventListener('click', function() {
+        toggleLike(elementLikeBtn);
+    });
 
     return cardData;
 
 }
 
+
 initialCards.forEach(function(initialCardsData) {
-    let cardElement = createCards(initialCardsData);
+    const cardElement = createCards(initialCardsData);
     elementContainer.prepend(cardElement);
 });
 
+const cardNameInput = document.querySelector('.form__item_el_discr');
+const cardImgInput = document.querySelector('.form__item_el_img');
 
-function CreateCardSubmit(evt) {
+function submitAddCardPopup(evt) {
     evt.preventDefault();
-    let cardNameInput = document.querySelector('.form__item_el_discr');
-    let cardImgInput = document.querySelector('.form__item_el_img');
+
     const elementCard = createCards({ name: cardNameInput.value, link: cardImgInput.value });
     elementContainer.prepend(elementCard);
-    closePopup(popupElement);
+    closePopup(popupAddCard);
+    formAddCard.reset();
 }
 
-formCards.addEventListener('submit', CreateCardSubmit);
+formAddCard.addEventListener('submit', submitAddCardPopup);
