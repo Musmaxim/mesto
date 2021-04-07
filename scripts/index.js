@@ -45,10 +45,6 @@ const template = document.querySelector('.template').content;
 const createCardBtn = document.querySelector('.form__create');
 const formAddCard = document.querySelector('.form_cards');
 
-
-
-
-
 openAddCardPopupBtn.addEventListener('click', function() {
     openPopup(popupAddCard);
 
@@ -58,45 +54,45 @@ closePopupElementBtn.addEventListener('click', function() {
     closePopup(popupAddCard);
 });
 
+const popupPicture = document.querySelector('.popup_open-img');
+const popupCloseImage = document.querySelector('.popup__close-image');
+const popupImage = document.querySelector('.popup__image');
+const popupCaption = document.querySelector('.popup__caption');
+
+popupCloseImage.addEventListener('click', function() {
+    closePopup(popupPicture);
+});
+
+function deleteCard(deleteElement) {
+    deleteElement.remove();
+}
+
+function toggleLike(elementLike) {
+    elementLike.classList.toggle('element__like_act');
+}
 
 function createCards(initialCardsData) {
-    const cardData = template.querySelector('.element').cloneNode(true);
+    const cardData = template.cloneNode(true);
     const elementImage = cardData.querySelector('.element__image');
     const elementTitle = cardData.querySelector('.element__title');
+    const popupOpenImage = cardData.querySelector('.element__button');
     elementTitle.textContent = initialCardsData.name;
     elementImage.src = initialCardsData.link;
     elementImage.alt = initialCardsData.name;
-    elementContainer.prepend(cardData);
-
-    const popupPicture = document.querySelector('.popup_open-img'); ////я не могу вынести эти константы, а так же код по лайку и удалению карточки из этой функции, макет перестает полностью работать. Решение выше моего понимания, извините.
-    const popupOpenImage = document.querySelector('.element__button');
-    const popupCloseImage = document.querySelector('.popup__close-image');
-    const popupImage = document.querySelector('.popup__image');
-    const popupCaption = document.querySelector('.popup__caption');
-
 
     popupOpenImage.addEventListener('click', function() {
         openPopup(popupPicture);
         popupImage.src = elementImage.src;
         popupCaption.textContent = elementTitle.textContent;
     });
+    console.log(popupCaption);
 
-    popupCloseImage.addEventListener('click', function() {
-        closePopup(popupPicture);
-    });
+
+    const element = cardData.querySelector('.element');
+    const removeCardBtn = cardData.querySelector('.element__delete');
+    removeCardBtn.addEventListener('click', () => deleteCard(element));
 
     const elementLikeBtn = cardData.querySelector('.element__like');
-    const removeCardBtn = cardData.querySelector('.element__delete');
-
-    function deleteCard() {
-        cardData.remove();
-    }
-
-    removeCardBtn.addEventListener('click', deleteCard);
-
-    function toggleLike(elementLikeBtn) {
-        elementLikeBtn.classList.toggle('element__like_act');
-    }
 
     elementLikeBtn.addEventListener('click', function() {
         toggleLike(elementLikeBtn);
@@ -105,7 +101,6 @@ function createCards(initialCardsData) {
     return cardData;
 
 }
-
 
 initialCards.forEach(function(initialCardsData) {
     const cardElement = createCards(initialCardsData);
