@@ -15,7 +15,6 @@ function closePopup(popup) {
     popup.classList.remove('popup_visible');
 }
 
-
 openEditPopupBtn.addEventListener('click', function() {
     openPopup(popupProfile);
     nameInput.value = profileName.textContent;
@@ -26,7 +25,6 @@ closeEditProfilePopupBtn.addEventListener('click', function() {
     closePopup(popupProfile);
 });
 
-
 function submitEditProfilePopup(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
@@ -35,7 +33,6 @@ function submitEditProfilePopup(evt) {
 }
 
 formEditProfile.addEventListener('submit', submitEditProfilePopup);
-
 
 const popupAddCard = document.querySelector('.popup_add-cards');
 const openAddCardPopupBtn = document.querySelector('.button');
@@ -88,8 +85,11 @@ function createCards(initialCardsData) {
         popupCaption.textContent = elementTitle.textContent;
     });
 
+
+    const element = cardData.querySelector('.element'); //данная переменная используется снизу 
     const removeCardBtn = cardData.querySelector('.element__delete');
-    removeCardBtn.addEventListener('click', () => deleteCard(element));
+
+    removeCardBtn.addEventListener('click', () => deleteCard(element)); //вот тут
 
     const elementLikeBtn = cardData.querySelector('.element__like');
 
