@@ -6,14 +6,45 @@ const profileWork = document.querySelector('.info__work');
 const formEditProfile = document.querySelector('.form_profile');
 const nameInput = document.querySelector('.form__item_el_name');
 const jobInput = document.querySelector('.form__item_el_work');
+const popupAddCard = document.querySelector('.popup_add-cards');
+const popupAll = document.querySelectorAll('.popup')
+
+function enableEscListener() {
+    document.addEventListener('keyup', handleClosePopup);
+};
+
+function handleClosePopup(evt) {
+    evt.preventDefault();
+    escEvent(evt, closePopup);
+}
+
+function escEvent(evt, action) {
+    if (evt.key === 'Escape') {
+        const activPopup = document.querySelector('.popup_visible');
+        action(activPopup);
+    }
+}
 
 function openPopup(popup) {
     popup.classList.add('popup_visible');
+    enableEscListener();
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_visible');
+    document.removeEventListener('keyup', handleClosePopup);
 }
+
+function closeOverlay(popupAll) {
+    popupAll.forEach(itemPopup => {
+        itemPopup.addEventListener('click', (evt) => {
+            if (evt.target === evt.currentTarget) {
+                closePopup(itemPopup)
+            };
+        });
+    });
+};
+closeOverlay(popupAll);
 
 openEditPopupBtn.addEventListener('click', function() {
     openPopup(popupProfile);
@@ -25,6 +56,7 @@ closeEditProfilePopupBtn.addEventListener('click', function() {
     closePopup(popupProfile);
 });
 
+
 function submitEditProfilePopup(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
@@ -34,7 +66,7 @@ function submitEditProfilePopup(evt) {
 
 formEditProfile.addEventListener('submit', submitEditProfilePopup);
 
-const popupAddCard = document.querySelector('.popup_add-cards');
+
 const openAddCardPopupBtn = document.querySelector('.button');
 const closeAddCardPopupBtn = document.querySelector('.popup__close');
 const elementContainer = document.querySelector('.elements');

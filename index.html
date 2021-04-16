@@ -35,24 +35,28 @@
     <div class="popup popup_profile">
         <div class="popup__content">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form form_profile" name="form">
+            <form class="form form_profile" name="form" novalidate>
                 <fieldset class="form__fieldset">
-                    <input type="text" name="name" placeholder="Введите имя" class="form__item form__item_el_name">
-                    <input type="text" name="work" placeholder="Введите род занятий" class="form__item form__item_el_work">
+                    <input type="text" name="name" placeholder="Введите имя" class="form__item form__item_el_name" id="input_name" minlength="2" maxlength="40" required autocomplete="off">
+                    <span class="form__item-error" id="input_name-error"></span>
+                    <input type="text" name="work" placeholder="Введите род занятий" class="form__item form__item_el_work" id="input_work" minlength="2" maxlength="200" required autocomplete="off">
+                    <span class="form__item-error" id="input_work-error"></span>
                 </fieldset>
                 <button class="form__button" type="submit">Сохранить
-                </button>
+                    </button>
             </form>
             <button aria-label="Закрыть" type="button" class="popup__close-button"></button>
         </div>
     </div>
     <div class="popup popup_add-cards">
         <div class="popup__content">
-            <h2 class="popup__title">Новое место</h2>
-            <form class="form form_cards" name="form">
+            <h2 class="popup__title ">Новое место</h2>
+            <form class="form form_cards" name="form" novalidate>
                 <fieldset class="form__fieldset">
-                    <input type="text" name="name" placeholder="Название" class="form__item form__item_el_discr">
-                    <input type="url" name="img" placeholder="Ссылка на картинку" class="form__item form__item_el_img">
+                    <input type="text" name="name" placeholder="Название" class="form__item form__item_el_discr" id="input_discr" minlength="2" maxlength="30" required autocomplete="off">
+                    <span class="form__item-error" id="input_discr-error"></span>
+                    <input type="url" name="img" placeholder="Ссылка на картинку " class="form__item form__item_el_img" id="input_img" required autocomplete="off">
+                    <span class="form__item-error" id="input_img-error"></span>
                 </fieldset>
                 <button class="form__button" type="submit">Создать
                 </button>
@@ -64,7 +68,7 @@
         <div class="popup__content popup__content_img">
             <img class="popup__image" />
             <p class="popup__caption"></p>
-            <button aria-label="Закрыть " type="button " class="popup__close-button popup__close-image "></button>
+            <button aria-label="Закрыть" type="button" class="popup__close-button popup__close-image"></button>
         </div>
     </div>
 
@@ -79,7 +83,8 @@
         </article>
     </template>
     <script src="./scripts/initial-cards.js"></script>
-    <script src='./scripts/index.js'></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
