@@ -35,16 +35,19 @@ function closePopup(popup) {
     document.removeEventListener('keyup', handleClosePopup);
 }
 
-function closeOverlay(popupAll) {
-    popupAll.forEach(itemPopup => {
-        itemPopup.addEventListener('click', (evt) => {
-            if (evt.target === evt.currentTarget) {
-                closePopup(itemPopup)
-            };
-        });
+function buttonDisabled(popup) {
+    const buttonSubmit = popup.querySelector('.form__button');
+    buttonSubmit.classList.add("form__button_inactive");
+    buttonSubmit.disabled = true;
+}
+
+popupAll.forEach(itemPopup => {
+    itemPopup.addEventListener('click', (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closePopup(itemPopup)
+        };
     });
-};
-closeOverlay(popupAll);
+});
 
 openEditPopupBtn.addEventListener('click', function() {
     openPopup(popupProfile);
@@ -56,7 +59,6 @@ closeEditProfilePopupBtn.addEventListener('click', function() {
     closePopup(popupProfile);
 });
 
-
 function submitEditProfilePopup(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
@@ -65,7 +67,6 @@ function submitEditProfilePopup(evt) {
 }
 
 formEditProfile.addEventListener('submit', submitEditProfilePopup);
-
 
 const openAddCardPopupBtn = document.querySelector('.button');
 const closeAddCardPopupBtn = document.querySelector('.popup__close');
@@ -76,7 +77,7 @@ const formAddCard = document.querySelector('.form_cards');
 
 openAddCardPopupBtn.addEventListener('click', function() {
     openPopup(popupAddCard);
-
+    buttonDisabled(popupAddCard);
 });
 
 closeAddCardPopupBtn.addEventListener('click', function() {
@@ -116,7 +117,6 @@ function createCards(initialCardsData) {
         popupImage.alt = elementTitle.textContent;
         popupCaption.textContent = elementTitle.textContent;
     });
-
 
     const element = cardData.querySelector('.element'); //данная переменная используется снизу 
     const removeCardBtn = cardData.querySelector('.element__delete');
